@@ -16,7 +16,7 @@
       </li>
     </ol>
     <div v-else class="noResult">
-      目前没有相关记录
+      当前没有收支记录
     </div>
   </Layout>
 </template>
