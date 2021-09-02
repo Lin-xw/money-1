@@ -26,10 +26,12 @@
   @import "~@/assets/style/helper.scss";
   nav {
     @extend %outerShadow;
+    background: white;
     display: flex;
     flex-direction: row;
     font-size: 12px;
     > .item {
+      color: #757575;
       padding: 2px 0;
       width: 33.33333%;
       display: flex;
