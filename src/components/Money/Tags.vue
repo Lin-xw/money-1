@@ -1,7 +1,8 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button @click="createTag">新增标签</button>
+      <button @click="createTag">
+        <Icon name="khcfdc"/>新增标签</button>
     </div>
     <ul class="current">
       <li v-for="tag in tagList" :key="tag.id"
@@ -55,7 +56,7 @@
       display: flex;
       flex-wrap: wrap;
       > li {
-        $bg: #D9D9D9;
+        $bg: #c9ddc7;
         background: $bg;
         $h: 24px;
         height: $h;
@@ -65,7 +66,7 @@
         margin-right: 12px;
         margin-top: 4px;
         &.selected {
-          background: darken($bg, 50%);
+          background: #596d58;
           color: white;
         }
       }
@@ -75,7 +76,7 @@
       button {
         background: transparent;
         border: none;
-        color: #999;
+        color: #596d58;
         border-bottom: 1px solid;
         padding: 0 4px;
       }

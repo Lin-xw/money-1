@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout class="layout">
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
     <ol v-if="groupedList.length>0">
       <li v-for="(group, index) in groupedList" :key="index">
@@ -97,22 +97,31 @@
 </script>
 
 <style scoped lang="scss">
+  .layout{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
   .noResult{
     padding: 16px;
     text-align: center;
   }
 
   ::v-deep {
+
     .type-tabs-item {
-      background: #C4C4C4;
+      background: #e9f0e8;
+      color: #696969;
       &.selected {
-        background: white;
+        background: #93b68d;
+        color: white;
         &::after {
           display: none;
         }
       }
     }
     .interval-tabs-item {
+
       height: 48px;
     }
   }
@@ -127,7 +136,7 @@
     @extend %item;
   }
   .record {
-    background: white;
+    background: #e8eee6;
     @extend %item;
   }
   .notes {

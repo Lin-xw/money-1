@@ -5,15 +5,17 @@
       <button @click="inputContent">1</button>
       <button @click="inputContent">2</button>
       <button @click="inputContent">3</button>
-      <button @click="remove">删除</button>
+      <button @click="remove" class="icon">
+        <Icon name="reverseBack"/>
+      </button>
       <button @click="inputContent">4</button>
       <button @click="inputContent">5</button>
       <button @click="inputContent">6</button>
-      <button @click="clear">清空</button>
+      <button @click="clear" class="ql">清除</button>
       <button @click="inputContent">7</button>
       <button @click="inputContent">8</button>
       <button @click="inputContent">9</button>
-      <button @click="ok" class="ok">OK</button>
+      <button @click="ok" class="ok">完成</button>
       <button @click="inputContent" class="zero">0</button>
       <button @click="inputContent">.</button>
     </div>
@@ -81,19 +83,27 @@
     .buttons {
       @extend %clearFix;
       > button {
+        font-size: 18px;
         width: 25%;
         height: 64px;
         float: left;
         background: transparent;
         border: none;
+        &.icon{
+          font-size: 24px;
+        }
+        &.ql{
+          font-size: 18px;
+        }
         &.ok {
+          font-size: 18px;
           height: 64*2px;
           float: right;
         }
         &.zero {
           width: 25*2%;
         }
-        $bg: #F2F2F2;
+        $bg: #dae6d8;
         &:nth-child(1) {
           background: $bg;
         }

@@ -1,8 +1,6 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
-    <Tabs :data-source="recordTypeList"
-          :value.sync="record.type"/>
     <div class="notes">
       <FormItem field-name="备注"
                 placeholder="在这里输入备注"
@@ -10,6 +8,8 @@
       />
     </div>
     <Tags @update:value="record.tags = $event"/>
+    <Tabs :data-source="recordTypeList"
+          :value.sync="record.type"/>
   </Layout>
 </template>
 
@@ -46,12 +46,12 @@
 
     saveRecord() {
       if(!this.record.tags ||this.record.tags.length === 0){
-        window.alert('请至少选择一个标签')
+        window.alert('请至少选择一个标签噢')
         return
       }
       this.$store.commit('createRecord', this.record);
       if (this.$store.state.createRecordError === null){
-        window.alert('已保存');
+        window.alert('木木记下来啦');
         this.record.notes = '';
       }
     }

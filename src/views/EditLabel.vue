@@ -8,7 +8,7 @@
     <div class="form-wrapper">
       <FormItem :value="currentTag.name"
                 @update:value="update"
-                field-name="标签名" placeholder="请输入标签名"/>
+                field-name="标签名：" placeholder="请输入标签名"/>
     </div>
     <div class="button-wrapper">
       <Button @click="remove">删除标签</Button>
@@ -64,7 +64,7 @@
     text-align: center;
     font-size: 16px;
     padding: 12px 16px;
-    background: white;
+    background: #93b68d;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,6 +82,9 @@
   .form-wrapper {
     background: white;
     margin-top: 8px;
+  }
+  .button{
+    background:#93b68d;
   }
   .button-wrapper {
     text-align: center;

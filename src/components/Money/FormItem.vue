@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <label class="formItem">
       <span class="name">{{this.fieldName}}</span>
       <input type="text"
@@ -37,10 +37,10 @@
       padding-right: 16px;
     }
     input {
+      border: none;
       height: 40px;
       flex-grow: 1;
       background: transparent;
-      border: none;
       padding-right: 16px;
     }
   }

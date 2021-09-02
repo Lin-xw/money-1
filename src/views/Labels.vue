@@ -11,7 +11,7 @@
     <div class="createTag-wrapper">
       <Button class="createTag"
               @click="createTag">
-        新建标签
+        添加类别
       </Button>
     </div>
   </Layout>
@@ -42,7 +42,7 @@
 
 <style lang="scss" scoped>
   .tags {
-    background: white;
+    background: #dae6d8;
     font-size: 16px;
     padding-left: 16px;
     > .tag {
@@ -60,7 +60,7 @@
     }
   }
   .createTag {
-    background: #767676;
+    background: #93b68d;
     color: white;
     border-radius: 4px;
     border: none;
