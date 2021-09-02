@@ -56,12 +56,10 @@
 
     get groupedList() {
       const {recordList} = this;
-      if (recordList.length === 0) {return [];}
 
       const newList = clone(recordList)
           //createdAt of undefined 的解决办法
-          //增加无收入也可以点击进入
-
+          //增加无收入也可以点击进
         .filter(r => r.type === this.type)
         .sort((a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf());
       if (newList.length === 0 ) {return [] as Result;}
