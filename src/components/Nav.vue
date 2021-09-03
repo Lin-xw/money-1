@@ -31,7 +31,7 @@
     flex-direction: row;
     font-size: 12px;
     > .item {
-      color: #757575;
+      color: #8a8a8a;
       padding: 2px 0;
       width: 33.33333%;
       display: flex;
