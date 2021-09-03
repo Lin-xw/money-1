@@ -66,7 +66,7 @@
         margin-right: 12px;
         margin-top: 4px;
         &.selected {
-          background: #c9ddc7;
+          background: #536c51;
           color: white;
         }
       }
