@@ -7,6 +7,13 @@
                 :value.sync="record.notes"
       />
     </div>
+    <div class="createdAt">
+    <FormItem field-name="日期"
+              type="date"
+              placeholder="在这里输入日期"
+              :value.sync="record.createdAt"
+    />
+    </div>
     <Tags @update:value="record.tags = $event"/>
     <Tabs :data-source="recordTypeList"
           :value.sync="record.type"/>
@@ -32,9 +39,9 @@
 
     recordTypeList = recordTypeList;
 
-    record: RecordItem = {
-      tags: [], notes: '', type: '-', amount: 0
-    };
+    record: RecordItem = {//默认初始值
+      tags: [], notes: '', type: '-', amount: 0, createdAt:new Date().toISOString()
+    };//添加日期默认初始值为当天
 
     created() {
       this.$store.commit('fetchRecords');
