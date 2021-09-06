@@ -1,18 +1,21 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
-    <div class="notes">
-      <FormItem field-name="备注"
-                placeholder="在这里输入备注"
-                :value.sync="record.notes"
-      />
-    </div>
-    <div class="createdAt">
-    <FormItem field-name="日期"
-              type="date"
-              placeholder="在这里输入日期"
-              :value.sync="record.createdAt"
-    />
+    <div class="box">
+      <div class="notes icon">
+
+        <FormItem field-name=""
+                  placeholder="   在这里输入备注"
+                  :value.sync="record.notes"
+        />
+      </div>
+      <div class="createdAt">
+        <FormItem field-name=""
+                  type="date"
+                  placeholder="在这里输入日期"
+                  :value.sync="record.createdAt"
+        />
+      </div>
     </div>
     <Tags @update:value="record.tags = $event"/>
     <Tabs :data-source="recordTypeList"
@@ -70,7 +73,17 @@
     display: flex;
     flex-direction: column-reverse;
   }
+  .createdAt{
+    height: 64px;
+    width: 45%;
+    float: right;
+    padding: 12px 0;
+  }
   .notes {
+    text-align: right;
+    height: 64px;
+    float: left;
+    width: 55%;
     padding: 12px 0;
   }
 </style>

@@ -9,6 +9,7 @@
                :placeholder="this.placeholder">
       </template>
       <template v-else>
+        <Icon name="notess" style="font-size: 20px;"/>
         <input :type="type ||'text'"
                :value="value"
                @input="onValueChanged($event.target.value)"
@@ -50,15 +51,15 @@
     padding-left: 16px;
     display: flex;
     align-items: center;
-    .name {
-      padding-right: 16px;
-    }
+    float: right;
     input {
       border: none;
       height: 40px;
+      width: 190px;
       flex-grow: 1;
       background: transparent;
       padding-right: 16px;
     }
+
   }
 </style>
