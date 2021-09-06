@@ -1,9 +1,9 @@
 <template>
   <Layout class="layout">
-    <div class="chart-wrapper" ref="chartWrapper">
-    <Chart class="chart" :options="chartOptions"/>
-    </div>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
+    <div class="chart-wrapper" ref="chartWrapper">
+      <Chart class="chart" :options="chartOptions"/>
+    </div>
     <ol v-if="groupedList.length>0">
       <li v-for="(group, index) in groupedList" :key="index">
         <h3 class="title">{{ beautify(group.title) }} <span>￥{{ group.total }}</span></h3>
@@ -83,12 +83,12 @@ export default class Statistics extends Vue {
       const dateString = day(today)
           .subtract(i,'day').format('YYYY-MM-DD');
       //得到deteString之后，找到这一天对应的金额
-      const found = __.find(this.recordList, {
-        createdAt: dateString
+      const found =_.find(this.groupedList, {
+        title: dateString
       });
       //找到后把时间存到数组的date里面，然后金额存在的话就获取amount，不存在就为0
       array.push({
-        key: dateString, value: found ?.amount
+        key: dateString, value: found ? found.total : 0
       });
     }
     //push完后对数据进行排序
@@ -198,7 +198,6 @@ export default class Statistics extends Vue {
   height: 400px;
 }
 
-
 .layout {
   display: flex;
   flex-direction: column;
@@ -227,7 +226,6 @@ export default class Statistics extends Vue {
   }
 
   .interval-tabs-item {
-
     height: 48px;
   }
 }

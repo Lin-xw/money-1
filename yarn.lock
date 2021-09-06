@@ -1053,7 +1053,7 @@
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
-"@types/echarts@^4.9.10":
+"@types/echarts@^4.6.3":
   version "4.9.10"
   resolved "https://registry.nlark.com/@types/echarts/download/@types/echarts-4.9.10.tgz#a3dd598fbb3b36e797f3ce771be3fa8dc18a7da6"
   integrity sha1-o91Zj7s7NueX8853G+P6jcGKfaY=
@@ -1111,7 +1111,7 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
   integrity sha512-8+KAKzEvSUdeo+kmqnKrqgeE+LcA0tjYWFY7RPProVYwnqDjukzO+3b6dLD56rYX5TdWejnEOLJYOIeh4CXKuA==
 
-"@types/lodash@^4.14.172":
+"@types/lodash@^4.14.157":
   version "4.14.172"
   resolved "https://registry.nlark.com/@types/lodash/download/@types/lodash-4.14.172.tgz#aad774c28e7bfd7a67de25408e03ee5a8c3d028a"
   integrity sha1-qtd0wo57/Xpn3iVAjgPuWow9Aoo=
@@ -3118,13 +3118,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-env@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.npm.taobao.org/cross-env/download/cross-env-7.0.3.tgz#865264b29677dc015ba8418918965dd232fc54cf"
-  integrity sha1-hlJkspZ33AFbqEGJGJZd0jL8VM8=
-  dependencies:
-    cross-spawn "^7.0.1"
-
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -3149,15 +3142,6 @@ cross-spawn@^7.0.0:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.1.tgz#0ab56286e0f7c24e153d04cc2aa027e43a9a5d14"
   integrity sha512-u7v4o84SwFpD32Z8IIcPZ6z1/ie24O6RU3RbtL5Y316l3KuHVPx9ItBgWQ6VlfAFnRnTtMUrsQ9MUUTuEZjogg==
-  dependencies:
-    path-key "^3.1.0"
-    shebang-command "^2.0.0"
-    which "^2.0.1"
-
-cross-spawn@^7.0.1:
-  version "7.0.3"
-  resolved "https://registry.nlark.com/cross-spawn/download/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
-  integrity sha1-9zqFudXUHQRVUcF34ogtSshXKKY=
   dependencies:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
@@ -3773,13 +3757,12 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-echarts@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.nlark.com/echarts/download/echarts-5.2.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fecharts%2Fdownload%2Fecharts-5.2.0.tgz#9f1fbfbf048c15ab630bf0a74525c4c534d6cebc"
-  integrity sha1-nx+/vwSMFatjC/CnRSXExTTWzrw=
+echarts@^4.8.0:
+  version "4.9.0"
+  resolved "https://registry.nlark.com/echarts/download/echarts-4.9.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fecharts%2Fdownload%2Fecharts-4.9.0.tgz#a9b9baa03f03a2a731e6340c55befb57a9e1347d"
+  integrity sha1-qbm6oD8Doqcx5jQMVb77V6nhNH0=
   dependencies:
-    tslib "2.3.0"
-    zrender "5.2.0"
+    zrender "4.3.2"
 
 editorconfig@^0.15.3:
   version "0.15.3"
@@ -6568,7 +6551,7 @@ lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
-lodash@^4.17.21:
+lodash@^4.17.19:
   version "4.17.21"
   resolved "https://registry.nlark.com/lodash/download/lodash-4.17.21.tgz?cache=0&sync_timestamp=1624543041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flodash%2Fdownload%2Flodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
@@ -9919,11 +9902,6 @@ tsconfig@^7.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
-tslib@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.nlark.com/tslib/download/tslib-2.3.0.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
-  integrity sha1-gDuM2rPhK6WBpMpByIObuw2ssJ4=
-
 tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
@@ -10943,9 +10921,7 @@ yorkie@^2.0.0:
     normalize-path "^1.0.0"
     strip-indent "^2.0.0"
 
-zrender@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.nlark.com/zrender/download/zrender-5.2.0.tgz?cache=0&sync_timestamp=1630140908990&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fzrender%2Fdownload%2Fzrender-5.2.0.tgz#f8abc484ac4a8a51b04c3ccd37beabe1def342cd"
-  integrity sha1-+KvEhKxKilGwTDzNN76r4d7zQs0=
-  dependencies:
-    tslib "2.3.0"
+zrender@4.3.2:
+  version "4.3.2"
+  resolved "https://registry.nlark.com/zrender/download/zrender-4.3.2.tgz?cache=0&sync_timestamp=1630140908990&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fzrender%2Fdownload%2Fzrender-4.3.2.tgz#ec7432f9415c82c73584b6b7b8c47e1b016209c6"
+  integrity sha1-7HQy+UFcgsc1hLa3uMR+GwFiCcY=
