@@ -43,7 +43,8 @@ export default class Statistics extends Vue {
   }
   //让图表滚轮初始在最尾端
   mounted(){
-    (this.$refs.chartWrapper as HTMLDivElement).scrollLeft = 9999;
+    const div = (this.$refs.chartWrapper as HTMLDivElement);
+    div.scrollLeft = div.scrollWidth;
   }
 
 
