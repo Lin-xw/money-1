@@ -1,6 +1,8 @@
 <template>
   <Layout class="layout">
-    <Chart :options="x"/>
+    <div class="chart-wrapper" ref="chartWrapper">
+    <Chart class="chart" :options="x"/>
+    </div>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
     <ol v-if="groupedList.length>0">
       <li v-for="(group, index) in groupedList" :key="index">
@@ -39,6 +41,11 @@ export default class Statistics extends Vue {
   tagString(tags: Tag[]) {
     return tags.length === 0 ? '无' : tags.map(t => t.name).join('，');
   }
+  //让图表滚轮初始在最尾端
+  mounted(){
+    (this.$refs.chartWrapper as HTMLDivElement).scrollLeft = 9999;
+  }
+
 
   beautify(string: string) {
     const day = dayjs(string);
@@ -60,6 +67,11 @@ export default class Statistics extends Vue {
   //声明x
   get x() {
     return {
+      //解决图表两边多余空白
+      grid: {
+        left: 0,
+        right: 0,
+      },
       xAxis: {
         type: 'category',
         data: [
@@ -68,17 +80,24 @@ export default class Statistics extends Vue {
           '15', '16', '17', '18', '19', '20', '21',
           '22', '23', '24', '25', '26', '27',
           '28','29','30'
-        ]
+        ],
+        axisTick: {alignWithLabel: true},
+        axisLine: {lineStyle: {color: '#666'}}
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
+        show: false
       },
       tooltip:{
         show: true,
-        triggerOn: 'click'
+        position: 'top',
+        triggerOn: 'click',
+        formatter: '{c}'
       },
       series: [{
-
+        symbol: 'circle',
+        symbolSize: 12,
+        itemStyle: {borderWidth: 1, color: '#666', borderColor: '#666'},
         data: [120, {
           value: 200,
           itemStyle: {
@@ -86,7 +105,7 @@ export default class Statistics extends Vue {
           }
         }, 150, 80, 70, 110, 130],
         type: 'line'
-      }]
+      }],
     }
   }
 
@@ -196,6 +215,16 @@ export default class Statistics extends Vue {
   margin-right: auto;
   margin-left: 16px;
   color: #999;
+}
+.chart{
+  width: 430%;
+  &-wrapper{
+    overflow: auto;
+    &::-webkit-scrollbar {
+      //隐藏滚动条
+      display: none;
+    }
+  }
 }
 </style>
 
