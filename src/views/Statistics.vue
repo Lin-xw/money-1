@@ -1,7 +1,7 @@
 <template>
   <Layout class="layout">
     <div class="chart-wrapper" ref="chartWrapper">
-    <Chart class="chart" :options="x"/>
+    <Chart class="chart" :options="chartOptions"/>
     </div>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
     <ol v-if="groupedList.length>0">
@@ -67,8 +67,8 @@ export default class Statistics extends Vue {
     }
   }
 
-  //声明 y
-  get y() {
+  //声明 keyValueList
+  get keyValueList() {
     //当前最新一天，日期
     const today = new Date();
     //用于装数组
@@ -88,15 +88,15 @@ export default class Statistics extends Vue {
       });
       //找到后把时间存到数组的date里面，然后金额存在的话就获取amount，不存在就为0
       array.push({
-        date: dateString, value: found ?.amount
+        key: dateString, value: found ?.amount
       });
     }
     //push完后对数据进行排序
     array.sort((a,b)=>{
       //如果第一项的date大于第二项的date就返回 1，如果他们相等就返回 0，再其他的就返回 -1
-      if(a.date > b.date){
+      if(a.key > b.key){
         return 1;
-      } else if (a.date === b.date){
+      } else if (a.key === b.key){
         return 0;
       }else {
         return -1;
@@ -105,12 +105,12 @@ export default class Statistics extends Vue {
     return array;
   }
 
-  //声明 x
-  get x() {
+  //声明 chartOptions
+  get chartOptions() {
     //keys就是所有的日期
-    const keys = this.y.map(item=>item.date)
+    const keys = this.keyValueList.map(item=>item.key)
     //values就是所有日期的金额
-    const values = this.y.map(item => item.value);
+    const values = this.keyValueList.map(item => item.value);
     return {
       //解决图表两边多余空白
       grid: {
