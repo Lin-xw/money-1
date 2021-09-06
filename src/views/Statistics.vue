@@ -32,6 +32,8 @@ import recordTypeList from '@/constants/recordTypeList';
 import dayjs from 'dayjs';
 import clone from '@/lib/clone';
 import Chart from '@/components/Chart.vue'
+import _ from 'lodash';
+import day from 'dayjs';
 
 //放入组件里
 @Component({
@@ -65,8 +67,50 @@ export default class Statistics extends Vue {
     }
   }
 
-  //声明x
+  //声明 y
+  get y() {
+    //当前最新一天，日期
+    const today = new Date();
+    //用于装数组
+
+    const array = [];
+    //首先获取30个日期
+    //第一天属于0天，所以不减天数
+    //然后找到这30天中有数据的createdAt
+    for (let i = 0; i <= 29; i++) {
+      //date是个字符串
+      //每个日期用当前的日期减去i天，然后把它变成'YYYY-MM-DD'模式
+      const dateString = day(today)
+          .subtract(i,'day').format('YYYY-MM-DD');
+      //得到deteString之后，找到这一天对应的金额
+      const found = __.find(this.recordList, {
+        createdAt: dateString
+      });
+      //找到后把时间存到数组的date里面，然后金额存在的话就获取amount，不存在就为0
+      array.push({
+        date: dateString, value: found ?.amount
+      });
+    }
+    //push完后对数据进行排序
+    array.sort((a,b)=>{
+      //如果第一项的date大于第二项的date就返回 1，如果他们相等就返回 0，再其他的就返回 -1
+      if(a.date > b.date){
+        return 1;
+      } else if (a.date === b.date){
+        return 0;
+      }else {
+        return -1;
+      }
+    });
+    return array;
+  }
+
+  //声明 x
   get x() {
+    //keys就是所有的日期
+    const keys = this.y.map(item=>item.date)
+    //values就是所有日期的金额
+    const values = this.y.map(item => item.value);
     return {
       //解决图表两边多余空白
       grid: {
@@ -75,13 +119,7 @@ export default class Statistics extends Vue {
       },
       xAxis: {
         type: 'category',
-        data: [
-            '1', '2', '3', '4', '5', '6', '7',
-          '8', '9', '10', '11', '12', '13', '14',
-          '15', '16', '17', '18', '19', '20', '21',
-          '22', '23', '24', '25', '26', '27',
-          '28','29','30'
-        ],
+        data: keys,
         axisTick: {alignWithLabel: true},
         axisLine: {lineStyle: {color: '#666'}}
       },
@@ -99,12 +137,7 @@ export default class Statistics extends Vue {
         symbol: 'circle',
         symbolSize: 12,
         itemStyle: {borderWidth: 1, color: '#666', borderColor: '#666'},
-        data: [120, {
-          value: 200,
-          itemStyle: {
-            color: '#a90000'
-          }
-        }, 150, 80, 70, 110, 130],
+        data: values,
         type: 'line'
       }],
     }
@@ -138,8 +171,6 @@ export default class Statistics extends Vue {
     }
     result.map(group => {
       group.total = group.items.reduce((sum, item) => {
-        console.log(sum);
-        console.log(item);
         return sum + item.amount;
       }, 0);
     });
