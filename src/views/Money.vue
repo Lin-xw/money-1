@@ -2,10 +2,9 @@
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
     <div class="box">
-      <div class="notes icon">
-
+      <div class="notes">
         <FormItem field-name=""
-                  placeholder="   在这里输入备注"
+                  placeholder="在这里输入备注"
                   :value.sync="record.notes"
         />
       </div>
@@ -41,11 +40,9 @@
     }
 
     recordTypeList = recordTypeList;
-
     record: RecordItem = {//默认初始值
       tags: [], notes: '', type: '-', amount: 0, createdAt:new Date().toISOString()
     };//添加日期默认初始值为当天
-
     created() {
       this.$store.commit('fetchRecords');
     }
@@ -75,15 +72,15 @@
   }
   .createdAt{
     height: 64px;
-    width: 45%;
+    width: 50%;
     float: right;
     padding: 12px 0;
   }
-  .notes {
+  .notes{
     text-align: right;
     height: 64px;
     float: left;
-    width: 55%;
+    width: 50%;
     padding: 12px 0;
   }
 </style>
